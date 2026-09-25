@@ -218,6 +218,15 @@ The Linux adapters compile inside `core-tests` on every non-Windows platform, so
 syntax-checked from any Unix host (Windows cannot compile them: `<unistd.h>` and friends do not
 exist there).
 
+**Local Linux portability check** (no Actions minutes): run the CI Linux job's build and tests in
+an Ubuntu 24.04 Docker container with the same dependencies:
+
+```bash
+scripts/validate-linux.sh             # build + full test suite in Docker
+scripts/validate-linux.sh --appimage  # also package the AppImage
+scripts/validate-linux.sh --shell     # interactive container with the deps installed
+```
+
 ## License
 
 [MIT](LICENSE) — © 2026 Misaint20. The signing certificates and GPG release keys referenced in the
