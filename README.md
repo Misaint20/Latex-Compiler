@@ -216,3 +216,8 @@ cd build/dev && ./core-tests          # 110 cases / 590 assertions
 
 The Linux adapters compile inside `core-tests` on every platform, so Linux-only code is
 syntax-checked from any host.
+
+## License
+
+[MIT](LICENSE) — © 2026 Misaint20. The signing certificates and GPG release keys referenced in the
+release process are **not** covered by this license and remain the property of their owner.
