@@ -1,7 +1,10 @@
 #include "adapters/dialog/NativeFolderPicker.hpp"
 
 #include <shlobj.h>
+
+#include <cwchar>
 #include <memory>
+#include <string>
 #include <vector>
 
 namespace adapters {
@@ -34,6 +37,41 @@ private:
     bool must_uninit_ = false;
 };
 
+// UTF-8 <-> UTF-16 through the real conversion APIs. Char-by-char copies
+// between char and wchar_t (what MSVC warned about with C4244) truncate every
+// non-ASCII byte, breaking paths with accents or other multibyte characters.
+std::wstring wide_from_utf8(const std::string& utf8) {
+    if (utf8.empty()) {
+        return {};
+    }
+    const int size = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, utf8.c_str(),
+                                         static_cast<int>(utf8.size()), nullptr, 0);
+    if (size <= 0) {
+        return {};
+    }
+    std::wstring wide(static_cast<size_t>(size), L'\0');
+    MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, utf8.c_str(),
+                        static_cast<int>(utf8.size()), wide.data(), size);
+    wide.resize(static_cast<size_t>(size) - 1); // drop the terminating null
+    return wide;
+}
+
+std::string utf8_from_wide(const wchar_t* wide) {
+    if (wide == nullptr || *wide == L'\0') {
+        return {};
+    }
+    const int size = WideCharToMultiByte(CP_UTF8, 0, wide, -1, nullptr, 0, nullptr, nullptr);
+    if (size <= 1) {
+        return {};
+    }
+    // The reported size includes the terminating null: allocate for it, copy,
+    // then drop it.
+    std::string narrow(static_cast<size_t>(size), '\0');
+    WideCharToMultiByte(CP_UTF8, 0, wide, -1, narrow.data(), size, nullptr, nullptr);
+    narrow.resize(static_cast<size_t>(size) - 1);
+    return narrow;
+}
+
 } // namespace
 
 std::optional<std::string> NativeFolderPicker::pickFolder(const std::string& title,
@@ -52,10 +90,10 @@ std::optional<std::string> NativeFolderPicker::pickFolder(const std::string& tit
     DWORD options = 0;
     dialog->GetOptions(&options);
     dialog->SetOptions(options | FOS_PICKFOLDERS | FOS_FORCEFILESYSTEM);
-    dialog->SetTitle(std::wstring(title.begin(), title.end()).c_str());
+    dialog->SetTitle(wide_from_utf8(title).c_str());
 
     if (!start_path.empty()) {
-        std::wstring wide(start_path.begin(), start_path.end());
+        const std::wstring wide = wide_from_utf8(start_path);
         IShellItem* folder_raw = nullptr;
         if (SUCCEEDED(SHCreateItemFromParsingName(wide.c_str(), nullptr,
                                                   IID_PPV_ARGS(&folder_raw)))) {
@@ -78,7 +116,7 @@ std::optional<std::string> NativeFolderPicker::pickFolder(const std::string& tit
     if (FAILED(result->GetDisplayName(SIGDN_FILESYSPATH, &path_raw))) {
         return std::nullopt;
     }
-    std::string path(path_raw, path_raw + wcslen(path_raw));
+    std::string path = utf8_from_wide(path_raw);
     CoTaskMemFree(path_raw);
     return std::optional{path};
 }

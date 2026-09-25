@@ -214,8 +214,9 @@ cover arbitrary names).
 cd build/dev && ./core-tests          # 110 cases / 590 assertions
 ```
 
-The Linux adapters compile inside `core-tests` on every platform, so Linux-only code is
-syntax-checked from any host.
+The Linux adapters compile inside `core-tests` on every non-Windows platform, so Linux-only code is
+syntax-checked from any Unix host (Windows cannot compile them: `<unistd.h>` and friends do not
+exist there).
 
 ## License
 

@@ -262,12 +262,6 @@ FetchContent_MakeAvailable(doctest)
 enable_testing()
 add_executable(core-tests
     tests/main.cpp
-    # Portable Linux/POSIX adapters compile on every host so Linux-only
-    # syntax errors surface from any platform's build.
-    src/adapters/notify/SystemToastNotifier_linux.cpp
-    src/adapters/filesystem/SystemFileOpener_linux.cpp
-    src/adapters/filesystem/SystemEditorLauncher_linux.cpp
-    src/adapters/dialog/NativeFolderPicker_linux.cpp
     tests/test_compile_service.cpp
     tests/test_compile_history.cpp
     tests/test_recent_projects.cpp
@@ -280,6 +274,17 @@ add_executable(core-tests
     tests/test_diagram_build.cpp
     tests/test_toast_notifier.cpp
 )
+# Portable Linux/POSIX adapters compile inside core-tests on mac/Linux so
+# Linux-only syntax errors surface from any non-Windows host (they cannot
+# compile on Windows: <unistd.h> and friends do not exist there).
+if(NOT WIN32)
+    target_sources(core-tests PRIVATE
+        src/adapters/notify/SystemToastNotifier_linux.cpp
+        src/adapters/filesystem/SystemFileOpener_linux.cpp
+        src/adapters/filesystem/SystemEditorLauncher_linux.cpp
+        src/adapters/dialog/NativeFolderPicker_linux.cpp
+    )
+endif()
 target_include_directories(core-tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_compile_features(core-tests PRIVATE cxx_std_20)
 target_link_libraries(core-tests PRIVATE core ipc-adapter nlohmann_json::nlohmann_json doctest::doctest)

@@ -59,8 +59,9 @@ Conventions:
 
 - New tests go in `tests/test_<area>.cpp` and must be added to the
   `core-tests` sources in `CMakeLists.txt`.
-- The Linux/POSIX adapters compile inside `core-tests` on **every** platform, so
-  Linux-only code is syntax-checked from any host — keep them in that list.
+- The Linux/POSIX adapters compile inside `core-tests` on **every non-Windows**
+  host, so Linux-only code is syntax-checked from any Unix machine — keep them
+  in that list (Windows cannot compile them: no POSIX headers there).
 - Test business rules through the core services, not the adapters: no platform
   code in `src/core/`.
 
