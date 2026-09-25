@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=Latex Compiler
+GenericName=LaTeX Compiler
+Comment=Compile LaTeX projects with automatic Mermaid diagram building
+# Binary name as shipped. In the portable TGZ the menu entry only resolves if
+# the extracted folder is on PATH (or edit this line to the absolute path);
+# the AppImage build rewrites Exec to AppRun automatically.
+Exec=Latex Compiler
+Icon=latexcompiler
+Terminal=false
+Categories=Office;Publishing;
+Keywords=latex;tex;mermaid;pdf;compiler;
+StartupWMClass=Latex Compiler
