@@ -45,6 +45,14 @@ if(WIN32)
 else()
     find_program(PNPM_EXECUTABLE NAMES pnpm REQUIRED)
 endif()
+# A build directory configured before this resolution rule can hold the
+# extensionless npm shim in its cache (CreateProcess rejects it inside
+# "cmake -E env" with an opaque spawn error). Re-resolve instead of
+# failing at build time.
+if(WIN32 AND NOT PNPM_EXECUTABLE MATCHES "\\.(cmd|bat|exe)$")
+    unset(PNPM_EXECUTABLE CACHE)
+    find_program(PNPM_EXECUTABLE NAMES pnpm.cmd pnpm REQUIRED)
+endif()
 
 # macOS serves the frontend from app:// with a real origin, so normal code
 # splitting works. Everywhere else the page loads from file:// (null origin),
