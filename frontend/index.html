@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+    <script>
+      // Classic script running before any module: module-init errors never
+      // reach main.tsx's own handlers, so capture them here.
+      (function () {
+        function report(message, detail) {
+          var text = message + (detail ? '\n' + detail : '');
+          try {
+            console.error('[boot] ' + text);
+          } catch (e) {}
+          var host = document.getElementById('root') || document.body;
+          if (host) {
+            var pre = document.createElement('pre');
+            pre.id = 'boot-error';
+            pre.style.cssText =
+              'color:#fff;background:#7f1d1d;padding:16px;margin:16px;white-space:pre-wrap;font:12px/1.4 monospace;z-index:99999;position:relative;';
+            pre.textContent = 'Error de arranque:\n' + text;
+            host.appendChild(pre);
+          }
+          var w = window;
+          if (w.latexCompiler && w.__latexRequest) {
+            try {
+              w.__latexRequest('app.clientError', { message: message, detail: detail || '' });
+            } catch (e) {}
+          }
+        }
+        window.onerror = function (message, source, lineno, colno, error) {
+          var detail = (error && error.stack) || source + ':' + lineno + ':' + colno;
+          report(String(message), String(detail));
+        };
+        window.addEventListener('unhandledrejection', function (event) {
+          var reason = event.reason;
+          report('Unhandled rejection: ' + String(reason), (reason && reason.stack) || '');
+        });
+        window.__latexRequest = function (method, params) {
+          return w.latexCompiler(
+            JSON.stringify([{ version: 1, id: 'boot-' + Date.now(), method: method, params: params }]),
+          );
+        };
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

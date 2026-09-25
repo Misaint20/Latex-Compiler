@@ -1,0 +1,172 @@
+{
+  "title": "LaTeX 컴파일러",
+  "topbar": {
+    "home": "홈",
+    "chapters": "챕터",
+    "diagrams": "다이어그램",
+    "styles": "스타일",
+    "assets": "에셋",
+    "history": "기록",
+    "browse": "찾아보기…",
+    "browseTooltip": "프로젝트 폴더 선택",
+    "language": "언어",
+    "menu": {
+      "file": "파일",
+      "go": "이동",
+      "openFolder": "프로젝트 폴더 열기…",
+      "home": "홈",
+      "chapters": "챕터",
+      "diagrams": "다이어그램",
+      "styles": "스타일",
+      "assets": "에셋",
+      "history": "기록",
+      "homeTooltip": "홈 화면으로 이동",
+      "openFolderTooltip": "프로젝트 폴더 선택"
+    }
+  },
+  "home": {
+    "connectBackend": "백엔드에 연결 중…",
+    "backendOk": "백엔드에 연결되었습니다.",
+    "backendError": "연결 오류.",
+    "openProjectTitle": "LaTeX 프로젝트 열기",
+    "openProjectHelp": "프로젝트 폴더를 선택하면 그 안의 챕터, 다이어그램, 스타일, 에셋을 볼 수 있습니다.",
+    "browse": "찾아보기…",
+    "opening": "여는 중…",
+    "recentsTitle": "최근 프로젝트",
+    "lastProject": "마지막 프로젝트 · ",
+    "continueButton": "계속",
+    "momentAgo": "방금 전",
+    "minutesAgo": "{{count}}분 전",
+    "hoursAgo": "{{count}}시간 전",
+    "daysAgo": "{{count}}일 전",
+    "missingFolder": "폴더를 찾을 수 없음 · ",
+    "cleanMissing_one": "없어진 프로젝트 1개 정리",
+    "cleanMissing_other": "없어진 프로젝트 {{count}}개 정리",
+    "removedOne": "목록에서 프로젝트 {{count}}개를 제거했습니다.",
+    "removedMany": "목록에서 프로젝트 {{count}}개를 제거했습니다.",
+    "forgetTooltip": "목록에서 제거"
+  },
+  "explorer": {
+    "changeProject": "프로젝트 변경",
+    "rescanning": "스캔 중…",
+    "rescan": "다시 스캔",
+    "chaptersTab": "챕터 (.tex)",
+    "diagramsTab": "다이어그램 (.mmd)",
+    "stylesTab": "스타일 (.sty/.cls/.bib)",
+    "assetsTab": "에셋",
+    "historyTab": "기록",
+    "mainFile": "메인 파일:",
+    "remembered": "이전 세션에서 기억됨",
+    "autoDetected": "자동 감지됨",
+    "manualChoice": "직접 선택함"
+  },
+  "fileList": {
+    "empty": "이 섹션에 파일이 없습니다.",
+    "rootFolder": "(루트)",
+    "openDefaultTooltip": "시스템 기본 앱으로 열기",
+    "openError": "파일을 열 수 없습니다."
+  },
+  "compiler": {
+    "title": "Tectonic 컴파일러",
+    "compiling": "컴파일 중…",
+    "compile": "프로젝트 컴파일",
+    "cancel": "취소",
+    "currentFile": "파일: {{file}}",
+    "success": "컴파일 성공",
+    "failed": "컴파일 실패",
+    "canceled": "컴파일 취소됨",
+    "openPdf": "PDF 열기",
+    "openPdfError": "PDF를 열 수 없습니다.",
+    "failedAtStage": "실패한 단계: "
+  },
+  "stages": {
+    "download": "패키지",
+    "tex": "TeX",
+    "rerun": "2차 처리",
+    "assemble": "조립",
+    "write": "출력"
+  },
+  "history": {
+    "loadError": "기록을 불러올 수 없습니다.",
+    "loading": "기록 불러오는 중…",
+    "empty": "이 프로젝트에는 아직 컴파일 기록이 없습니다.",
+    "resultSucceeded": "성공",
+    "resultFailed": "실패",
+    "resultCanceled": "취소됨",
+    "allFailuresAtStage": "최근 실패 {{total}}건이 모두 {{stage}} 단계에서 끝났습니다.",
+    "topFailureStage": "가장 잦은 실패 단계: {{stage}} ({{total}}건 중 {{count}}건)."
+  },
+  "diagrams": {
+    "empty": "이 프로젝트에 .mmd 다이어그램이 없습니다.",
+    "openError": "파일을 열 수 없습니다.",
+    "viewSource": "소스 보기",
+    "editSource": "소스 편집",
+    "openWith": "다른 앱으로 열기…",
+    "openWithTitle": "다른 앱으로 열기",
+    "preferred": "선호 — {{label}}",
+    "systemDefault": "시스템 기본 앱",
+    "custom": "사용자 지정",
+    "customWithTemplate": "사용자 지정 ({{template}})",
+    "hide": "숨기기",
+    "show": "다이어그램 보기",
+    "rendering": "렌더링 중…",
+    "renderError": "다이어그램을 렌더링할 수 없습니다.",
+    "configNotObject": "설정 파일에 유효한 JSON 객체가 없습니다.",
+    "configInvalid": "잘못된 설정 JSON: {{message}}",
+    "cssApplied": "프로젝트 CSS의 스타일이 적용됨",
+    "loadingSource": "소스 불러오는 중…",
+    "readError": "다이어그램 파일을 읽을 수 없습니다.",
+    "save": "저장",
+    "saving": "저장 중…",
+    "saved": "저장되었습니다.",
+    "saveError": "파일을 저장할 수 없습니다."
+  },
+  "editorPicker": {
+    "editorLabel": ".tex 편집기:",
+    "diagramLabel": ".mmd 뷰어:",
+    "systemDefault": "시스템 기본 앱",
+    "internalPreview": "내장 미리보기",
+    "systemDefaultFeedback": "시스템 기본 앱이 사용됩니다.",
+    "internalPreviewFeedback": "내장 미리보기가 사용됩니다.",
+    "systemFallbackEditor": "다른 편집기를 선택할 때까지 시스템 기본 앱이 사용됩니다.",
+    "systemFallbackDiagram": "다른 앱을 선택할 때까지 시스템 앱이 사용됩니다.",
+    "customOption": "사용자 지정…",
+    "notInstalled": "{{label}} — 설치되지 않음",
+    "saved": "기본 설정이 저장되었습니다.",
+    "customSaved": "사용자 지정 명령이 저장되었습니다.",
+    "templateNeedsFile": "템플릿에 {file}이(가) 있어야 합니다."
+  },
+  "banner": {
+    "editorTitle": "선호하는 편집기({{name}})가 더 이상 설치되어 있지 않습니다",
+    "editorDetail": "다른 편집기를 선택할 때까지 .tex 파일은 시스템 기본 앱으로 열립니다.",
+    "diagramTitle": "선호하는 뷰어({{name}})가 더 이상 설치되어 있지 않습니다",
+    "diagramDetail": "다른 앱을 선택할 때까지 .mmd 다이어그램은 시스템 앱으로 열립니다.",
+    "dismiss": "닫기"
+  },
+  "errorBoundary": {
+    "title": "인터페이스에 문제가 발생했습니다",
+    "retry": "다시 시도"
+  },
+  "textEditor": {
+    "recommendation": "이것은 작은 수정을 위한 빠른 보기일 뿐 편집기가 아닙니다. 챕터 작성에는 전용 편집기(TeXstudio, VS Code 등)를 권장합니다. \"다른 앱으로 열기…\"에서 선호하는 편집기로 파일을 열 수 있습니다.",
+    "loadingSource": "소스 불러오는 중…",
+    "readError": "파일을 읽을 수 없습니다.",
+    "save": "저장",
+    "saving": "저장 중…",
+    "saved": "저장되었습니다.",
+    "saveError": "파일을 저장할 수 없습니다."
+  },
+  "assetsPreview": {
+    "show": "보기",
+    "hide": "숨기기",
+    "loading": "미리보기 불러오는 중…",
+    "loadError": "미리보기를 불러올 수 없습니다.",
+    "unsupported": "미리보기를 지원하지 않는 형식입니다.",
+    "tooLarge": "미리보기에 너무 큰 파일입니다.",
+    "pdfEmbedBlocked": "내장 뷰어가 이 PDF를 표시하지 못했습니다.",
+    "pdfOpenExternal": "그래도 열기"
+  },
+  "bridge": {
+    "unavailable": "네이티브 브리지를 사용할 수 없습니다."
+  }
+}

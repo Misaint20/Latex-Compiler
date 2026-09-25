@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+/* Ink & brass: an editorial print-inspired palette. Surfaces read as ink
+   washes, text as parchment, and accents as aged brass; vermilion and sage
+   mark failures and successes. */
+@theme {
+  --color-ink-950: #08090d;
+  --color-ink-900: #0e1016;
+  --color-ink-850: #12151d;
+  --color-ink-800: #171b25;
+  --color-ink-700: #202634;
+  --color-ink-600: #2b3344;
+  --color-ink-500: #3d4759;
+  --color-ink-400: #66707f;
+  --color-ink-300: #9aa3b2;
+  --color-ink-200: #c3c9d4;
+  --color-ink-100: #e3e0d8;
+
+  --color-parchment: #e8e2d4;
+  --color-parchment-dim: #b5b0a4;
+
+  --color-brass-300: #d9c08f;
+  --color-brass-400: #c9a869;
+  --color-brass-500: #b08d57;
+  --color-brass-600: #8f6f41;
+  --color-brass-700: #6f5530;
+
+  --color-vermilion: #c4553d;
+  --color-sage: #86a67e;
+
+  --font-display: "Iowan Old Style", "Palatino", "Georgia", serif;
+}
+
+:root {
+  font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  color: var(--color-ink-100);
+  background: var(--color-ink-900);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+/* macOS: content extends under the transparent title bar; reserve the strip
+   the traffic-light buttons occupy so the top bar chrome clears them. */
+.is-macos .app-topbar {
+  padding-left: 78px;
+}
+
+.app-topbar {
+  -webkit-app-region: drag;
+}
+.app-topbar button, .app-topbar input, .app-topbar select {
+  -webkit-app-region: no-drag;
+}
+
+.card {
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-ink-700);
+  background: linear-gradient(180deg, var(--color-ink-850), var(--color-ink-900));
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.03) inset, 0 8px 24px rgb(0 0 0 / 0.25);
+}
+
+.btn-brass {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-ink-950);
+  background: linear-gradient(180deg, var(--color-brass-400), var(--color-brass-600));
+  border: 1px solid var(--color-brass-700);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.25) inset, 0 2px 8px rgb(0 0 0 / 0.35);
+  transition: filter 150ms ease;
+}
+.btn-brass:hover { filter: brightness(1.08); }
+.btn-brass:disabled { opacity: 0.5; filter: grayscale(0.3); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 0.375rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--color-ink-200);
+  background: var(--color-ink-800);
+  border: 1px solid var(--color-ink-600);
+  transition: background 150ms ease, color 150ms ease;
+}
+.btn-ghost:hover { background: var(--color-ink-700); color: var(--color-parchment); }
+.btn-ghost:disabled { opacity: 0.5; }
+
+.tab {
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-ink-300);
+  border: 1px solid transparent;
+  transition: color 150ms ease, background 150ms ease;
+}
+.tab:hover { color: var(--color-parchment); background: var(--color-ink-800); }
+
+/* In-app menu bar (Windows/Linux). macOS uses the native system bar. */
+.menubar {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  z-index: 40;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-ink-600) 60%, transparent);
+  background: color-mix(in srgb, var(--color-ink-900) 92%, transparent);
+}
+.menubar-title {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8125rem;
+  color: var(--color-ink-200);
+  border-radius: 0.25rem;
+  transition: color 120ms ease, background 120ms ease;
+}
+.menubar-title:hover { color: var(--color-parchment); background: var(--color-ink-800); }
+.menubar-title-active { color: var(--color-parchment); background: var(--color-ink-700); }
+.menubar-title-disabled { opacity: 0.45; }
+.menubar-dropdown {
+  position: absolute;
+  top: 100%;
+  min-width: 14rem;
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--color-ink-800);
+  border: 1px solid color-mix(in srgb, var(--color-ink-600) 70%, transparent);
+  border-radius: 0.5rem;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.45);
+}
+.menubar-item {
+  text-align: left;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8125rem;
+  border-radius: 0.375rem;
+  color: var(--color-ink-100);
+}
+.menubar-item:hover:not(:disabled) {
+  color: var(--color-parchment);
+  background: linear-gradient(180deg, var(--color-brass-500), var(--color-brass-600));
+}
+.menubar-item:disabled { opacity: 0.4; }
+.tab:disabled { opacity: 0.4; }
+
+.tab-active {
+  color: var(--color-brass-300);
+  background: rgb(176 141 87 / 0.12);
+  border-color: rgb(176 141 87 / 0.45);
+}
+
+.row-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  border-radius: 0.375rem;
+  padding: 0.4rem 0.75rem;
+  background: var(--color-ink-800);
+  border: 1px solid transparent;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+.row-item:hover {
+  background: var(--color-ink-700);
+  border-color: rgb(176 141 87 / 0.35);
+}
+
+.select-input {
+  background: var(--color-ink-800);
+  border: 1px solid var(--color-ink-600);
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--color-ink-100);
+}
+.select-input:focus { outline: none; border-color: var(--color-brass-500); }
