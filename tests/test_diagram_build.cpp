@@ -4,6 +4,7 @@
 #include <doctest/doctest.h>
 
 #include <chrono>
+#include <cstddef>
 #include <filesystem>
 #include <fstream>
 #include <string>

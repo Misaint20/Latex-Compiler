@@ -3,6 +3,7 @@
 #include <doctest/doctest.h>
 #include <filesystem>
 #include <fstream>
+#include <string>
 #include <system_error>
 
 #ifdef _WIN32

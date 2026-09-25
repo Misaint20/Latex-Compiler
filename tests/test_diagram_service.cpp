@@ -2,6 +2,9 @@
 
 #include <doctest/doctest.h>
 #include <memory>
+#include <optional>
+#include <string>
+#include <unordered_map>
 
 namespace {
 

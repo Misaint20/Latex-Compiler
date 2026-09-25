@@ -5,6 +5,8 @@
 #include <doctest/doctest.h>
 #include <nlohmann/json.hpp>
 
+#include <chrono>
+#include <cstdint>
 #include <filesystem>
 #include <map>
 #include <memory>

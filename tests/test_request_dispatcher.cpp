@@ -20,7 +20,9 @@
 #include <algorithm>
 #include <chrono>
 #include <filesystem>
+#include <cstddef>
 #include <fstream>
+#include <map>
 #include <system_error>
 #include <memory>
 #include <utility>
