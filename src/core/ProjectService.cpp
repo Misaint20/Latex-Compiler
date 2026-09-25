@@ -10,6 +10,12 @@
 #include <filesystem>
 #include <iterator>
 #include <unordered_map>
+#include <cstddef>
+#include <memory>
+#include <optional>
+#include <string>
+#include <utility>
+#include <vector>
 
 namespace core
 {

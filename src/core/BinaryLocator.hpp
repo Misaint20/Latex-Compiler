@@ -11,6 +11,8 @@
 #include <cstdlib>
 #else
 #include <cstdlib>
+#include <cstddef>
+#include <utility>
 #endif
 
 namespace core {

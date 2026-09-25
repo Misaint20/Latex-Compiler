@@ -1,5 +1,7 @@
 #include "adapters/notify/SystemToastNotifier.hpp"
 
+#include <windows.h>
+
 #include <winrt/Windows.Data.Xml.Dom.h>
 #include <winrt/Windows.Foundation.h>
 #include <winrt/Windows.UI.Notifications.h>
@@ -7,6 +9,8 @@
 
 #include <cwchar>
 #include <string>
+#include <memory>
+#include <utility>
 
 namespace adapters {
 namespace notify {

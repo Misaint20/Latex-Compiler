@@ -1,5 +1,8 @@
 #include "DiagramService.hpp"
 #include <functional>
+#include <memory>
+#include <string>
+#include <utility>
 
 namespace core
 {

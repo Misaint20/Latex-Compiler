@@ -22,6 +22,8 @@
 #else
 #include <sys/wait.h>
 #include <unistd.h>
+#include <algorithm>
+#include <cstddef>
 #endif
 
 namespace adapters {

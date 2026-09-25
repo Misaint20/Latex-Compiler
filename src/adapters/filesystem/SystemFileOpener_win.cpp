@@ -5,6 +5,7 @@
 #include <shellapi.h>
 
 #include <filesystem>
+#include <string>
 
 namespace adapters {
 namespace filesystem {

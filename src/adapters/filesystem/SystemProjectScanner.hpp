@@ -8,6 +8,8 @@
 #include <filesystem>
 #include <string>
 #include <vector>
+#include <cstdint>
+#include <utility>
 
 namespace adapters {
 namespace filesystem {

@@ -5,6 +5,9 @@
 #include <iostream>
 #include <string>
 #include <utility>
+#include <cstddef>
+#include <memory>
+#include <vector>
 
 namespace {
 using json = nlohmann::json;

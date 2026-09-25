@@ -9,6 +9,8 @@
 #include <map>
 #include <mutex>
 #include <string>
+#include <memory>
+#include <utility>
 
 namespace adapters {
 namespace history {

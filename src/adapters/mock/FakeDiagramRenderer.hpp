@@ -3,6 +3,7 @@
 #include "core/contracts/IDiagramRenderer.hpp"
 
 #include <string>
+#include <utility>
 
 namespace adapters {
 namespace mock {

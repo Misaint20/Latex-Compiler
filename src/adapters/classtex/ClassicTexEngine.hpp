@@ -15,6 +15,9 @@
 #include <string>
 #include <string_view>
 #include <vector>
+#include <array>
+#include <cstddef>
+#include <utility>
 
 namespace adapters {
 namespace classtex {

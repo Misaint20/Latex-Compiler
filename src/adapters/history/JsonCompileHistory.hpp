@@ -12,6 +12,10 @@
 #include <mutex>
 #include <string>
 #include <vector>
+#include <cstddef>
+#include <cstdint>
+#include <memory>
+#include <utility>
 
 namespace adapters {
 namespace history {

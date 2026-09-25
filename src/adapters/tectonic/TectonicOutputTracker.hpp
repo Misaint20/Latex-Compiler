@@ -4,6 +4,7 @@
 #include <cctype>
 #include <string>
 #include <utility>
+#include <cstddef>
 
 namespace adapters {
 namespace tectonic {

@@ -15,6 +15,10 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include <cstddef>
+#include <cstdint>
+#include <memory>
+#include <utility>
 
 namespace adapters {
 namespace history {

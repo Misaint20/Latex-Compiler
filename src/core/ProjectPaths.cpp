@@ -2,6 +2,8 @@
 
 #include <filesystem>
 #include <utility>
+#include <optional>
+#include <string>
 
 namespace core {
 

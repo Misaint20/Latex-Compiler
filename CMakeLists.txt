@@ -36,7 +36,15 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(nlohmann_json)
 
-find_program(PNPM_EXECUTABLE NAMES pnpm REQUIRED)
+# On Windows the PATH exposes pnpm as pnpm.cmd (npm shim layout); a bare
+# find_program(PNPM_EXECUTABLE NAMES pnpm) can resolve the extensionless
+# POSIX shim, which cmd.exe resolves for plain invocations but CreateProcess
+# rejects inside "cmake -E env" with "inappropriate file type or format".
+if(WIN32)
+    find_program(PNPM_EXECUTABLE NAMES pnpm.cmd pnpm REQUIRED)
+else()
+    find_program(PNPM_EXECUTABLE NAMES pnpm REQUIRED)
+endif()
 
 # macOS serves the frontend from app:// with a real origin, so normal code
 # splitting works. Everywhere else the page loads from file:// (null origin),

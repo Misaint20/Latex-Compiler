@@ -7,6 +7,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <vector>
+#include <string>
 
 namespace adapters {
 namespace filesystem {

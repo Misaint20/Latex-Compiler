@@ -8,6 +8,13 @@
 #include <cstdint>
 #include <fstream>
 #include <sstream>
+#include <cstddef>
+#include <filesystem>
+#include <map>
+#include <optional>
+#include <set>
+#include <string>
+#include <vector>
 
 namespace core {
 namespace fs = std::filesystem;

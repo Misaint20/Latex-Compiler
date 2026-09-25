@@ -37,6 +37,10 @@
 #include <shlobj.h>
 #else
 #include <cstdlib>
+#include <filesystem>
+#include <memory>
+#include <string>
+#include <vector>
 #endif
 
 namespace app {

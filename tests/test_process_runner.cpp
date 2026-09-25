@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <system_error>
+#include <iostream>
 
 #ifdef _WIN32
 static const char* kTrue = "cmd";

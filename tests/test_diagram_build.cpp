@@ -11,6 +11,7 @@
 #include <thread>
 #include <vector>
 #include <cstdlib>
+#include <memory>
 
 namespace {
 

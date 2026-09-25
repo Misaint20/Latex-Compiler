@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <string>
 #include <vector>
+#include <cstddef>
 
 namespace core {
 namespace contracts {

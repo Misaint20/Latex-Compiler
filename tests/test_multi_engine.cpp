@@ -12,6 +12,7 @@
 
 #if !defined(_WIN32)
 #include <unistd.h>
+#include <memory>
 #endif
 
 namespace {

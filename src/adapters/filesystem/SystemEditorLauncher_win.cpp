@@ -6,6 +6,9 @@
 
 #include <cstdlib>
 #include <filesystem>
+#include <cstddef>
+#include <string>
+#include <vector>
 
 namespace adapters {
 namespace filesystem {

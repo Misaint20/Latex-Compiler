@@ -8,6 +8,14 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <chrono>
+#include <cstddef>
+#include <cstdint>
+#include <memory>
+#include <mutex>
+#include <string>
+#include <thread>
+#include <vector>
 
 namespace core
 {

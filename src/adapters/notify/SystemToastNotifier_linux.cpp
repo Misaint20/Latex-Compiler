@@ -1,6 +1,10 @@
 #include "adapters/notify/SystemToastNotifier.hpp"
 
 #include "core/contracts/IProcessRunner.hpp"
+#include <cstddef>
+#include <memory>
+#include <string>
+#include <utility>
 
 namespace adapters {
 namespace notify {

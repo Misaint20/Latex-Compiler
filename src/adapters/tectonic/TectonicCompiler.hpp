@@ -10,6 +10,8 @@
 #include <string>
 #include <string_view>
 #include <vector>
+#include <cstddef>
+#include <utility>
 
 namespace adapters {
 namespace tectonic {

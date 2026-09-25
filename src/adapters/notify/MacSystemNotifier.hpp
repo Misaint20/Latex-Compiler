@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core/contracts/INotifier.hpp"
+#include <string>
 
 namespace adapters {
 namespace notify {
