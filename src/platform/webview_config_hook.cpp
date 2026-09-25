@@ -1,3 +1,10 @@
+// The app:// URL scheme handler hook only exists in the Apple (cocoa) engine
+// of the patched webview library, so this TU is meaningful on macOS alone. It
+// still compiles on every platform — empty elsewhere — to keep the target
+// sources uniform. The only caller (webview_window.cpp) guards the call with
+// the same condition.
+#if defined(__APPLE__)
+
 #include "platform/native_bridge.h"
 
 // The webview library header must be included as pure C++ (it casts between
@@ -17,3 +24,5 @@ void assign_webview_config_hook() {
 }
 
 } // namespace platform
+
+#endif // __APPLE__

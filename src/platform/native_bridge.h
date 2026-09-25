@@ -2,6 +2,7 @@
 #define PLATFORM_NATIVE_BRIDGE_H
 
 #include <functional>
+#include <string>
 
 #ifdef __cplusplus
 extern "C" {
